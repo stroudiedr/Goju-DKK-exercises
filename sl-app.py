@@ -9,9 +9,12 @@ from PIL import Image
 
 logo = Image.open("DKKLogo.gif")
 
-st.image(logo,width=600)
+st.title("Goju Karate Daily exercises")
 
-st.header("Daily exercises")
+st.image(logo,width=350)
+
+link = '[Goju Karate DKK webpage](http://www.goju-karate.co.uk/)'
+st.markdown(link, unsafe_allow_html=True)
 
 exercises  = {"A":"10 Push Ups","B":"Gekisai Ichi Kata","C":"10 Sit Ups","D":"120 second plank","E":"Gekisai Ni Kata",
               "F":"Standing sprints (2x60s)","G":"Sepai Kata","H":"10 Squats","I":"10 Push-Ups","J":"Seisan Kata",
@@ -23,26 +26,7 @@ exercises  = {"A":"10 Push Ups","B":"Gekisai Ichi Kata","C":"10 Sit Ups","D":"12
               "7":"10 leg raises (on back)","8":"10 crunches","9":"10 burpees"," ":" "
              }
 
-#Grades = ["Please select", "White","Red","Yellow","Orange","Green","Blue","Purple","Brown","Shodan Ho","Shodan","Nidan","Sandan"]
-
-#GradeSelect = st.sidebar.selectbox("Please select your grade",Grades)
-
-## Timer for the exercise
-
-#if st.sidebar.button("Start Timer"):
-	#st.sidebar.text("Timer has started")
-	#start_time = time.time()
-
-#if st.sidebar.button("Stop Timer"):
-	#st.sidebar.text("Time has stopped")
-	#stop_time = time.time()
-
-#duration = stop_time - start_time
-#st.markdown(start_time)
-#st.markdown(stop_time)
-#st.write("Your stop time was {stop_time}")
-
-string = st.sidebar.text_input("Type in your exercise phrase below")
+string = st.text_input("Type in your exercise phrase below")
 
 for x in string:
     x = x.upper()
@@ -50,6 +34,4 @@ for x in string:
         st.write(f" {x}: * No exercise * ")
     else:
         st.write(f"{x}: {exercises[x]} ")
-
-
 
